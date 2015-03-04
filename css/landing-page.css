@@ -61,6 +61,11 @@ img.navbar-brand {
     background-size: cover;
 }
 
+.intro-message > img {
+    max-width: 100%;
+    height: auto;
+}
+
 .intro-message {
     position: relative;
     padding-top: 10%;
