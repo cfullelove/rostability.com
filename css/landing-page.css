@@ -21,6 +21,10 @@ h6 {
     font-weight: 700;
 }
 
+h1, h2, h3, h4 {
+    color: #BA1818;
+}
+
 .topnav {
     font-size: 14px; 
     background-color: #333;
@@ -39,10 +43,29 @@ footer a:hover {
     color: #e8e8e8;
 }
 
+.content-section-b div.row {
+}
+
 img.navbar-brand {
     padding: 0px;
     margin: 0px;
     height: 50px;
+}
+
+i.icon {
+    font-size:8em;
+    color: #BA1818;
+    margin-top: 50px;
+}
+
+i.icon-sm {
+    font-size: 28px;
+    color: #BA1818;
+}
+
+.price-lg {
+    font-size: 5em;
+    color: #BA1818;
 }
 
 .lead {
