@@ -99,7 +99,7 @@
                     <div class="intro-message">
                         <img src="img/rostability_cloud.png" />
                         <h2>Availbility • Roster • Timesheets</h2>
-                        <a class="btn btn-default btn-lg network-name" href="#signup">Sign Up Now!</a>
+                        <a class="btn btn-default btn-lg network-name" href="#pricing">Sign Up Now!</a>
                     </div>
                 </div>
             </div>
@@ -313,7 +313,7 @@
                         <div class="input-group input-group-lg" id="mc_embed_signup_scroll">
                         <!-- <label for="mce-EMAIL">Subscribe to our mailing list</label> -->
                         <input type="email" value="" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="email address" required>
-                        <span class="input-group-btn"><button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary button">Subscribe</button></span>
+                        <span class="input-group-btn"><button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-default network-name">Subscribe</button></span>
                         </div>
                         <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                         <div>
@@ -381,7 +381,7 @@
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#signup"><b>Sign Up</b></a>
+                            <a href="#pricing"><b>Sign Up</b></a>
                         </li>
 
                     </ul>
@@ -399,37 +399,56 @@
         <h4 class="modal-title">Sign Up</h4>
       </div>
       <div class="modal-body">
-        <form action="http://requestb.in/13d2tko1" method="POST">
-        	<div class="form-group">
-        		<label for="first_name">First Name</label>
-        		<input type="text" class="form-control" name="first_name" placeholder="First" />
-        	</div>
-        	<div class="form-group">
-        		<label for="last_name">Last Name</label>
-        		<input type="text" class="form-control" name="last_name" placeholder="Last" />
-        	</div>
-        	<div class="form-group">
-        		<label for="company">Company</label>
-        		<input type="text" class="form-control" name="company" placeholder="Joe's Pizza Shop" />
-        	</div>
-        	<div class="form-group">
-        		<label for="email">Email Address</label>
-        		<input type="email" class="form-control" placeholder="you@company.com" />
-        	</div>
+        <form id="buy-form" action="" method="POST">
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input type="text" class="form-control" name="first_name" placeholder="First" />
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input type="text" class="form-control" name="last_name" placeholder="Last" />
+            </div>
+            <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" class="form-control" name="company" placeholder="Joe's Pizza Shop" />
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" name="email" class="form-control" placeholder="you@company.com" />
+            </div>
 
-		<div class="form_group">
-			<label form="option">Option</label>
-			<select class="form-control">
-				<option value="month">Monthly ($17.50/mo)</option>
-				<option value="year">Yearly ($175/yr)</option>
-			</select>
-		</div>
-		<button type="submit" class="btn btn-default network-name">Sign Up</button>
+        <div class="form_group">
+            <label form="option">Option</label>
+            <select name="option" class="form-control">
+                <option value="month">Monthly ($17.50/mo)</option>
+                <option value="year">Yearly ($175/yr)</option>
+            </select>
+        </div>
+        <div class="text-right">
+            <br />
+            <button type="submit" class="btn btn-default network-name">Sign Up</button>
+        </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Sign Up</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="thanks-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Thank You!</h4>
+      </div>
+      <div class="modal-body">
+        One of our team members will be in contact shortly via email to setup your system. Any questions, please <a data-dismiss="modal" href="#contact">Contact Us</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -442,7 +461,19 @@
     <script src="js/bootstrap.min.js"></script>
 
 	<script>
-		
+        $('#buy-form').submit(function(e){
+            console.log( e );
+          e.preventDefault();
+          //do some verification
+          $.post( 'http://former.vps3.rednesstech.com', $(this).serialize(),
+            function(data)
+            {
+                $(this).find( "input" ).val( "" );
+                $("#buy-modal").modal( 'hide' );
+                $("#thanks-modal").modal('show' );
+              console.log( data );//callback methods go right here
+            } );
+        });
 	</script>
 </body>
 

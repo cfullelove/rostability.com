@@ -38,9 +38,9 @@ footer a {
 }
 
 .navbar-header > a.navbar-brand:hover,
-.navbar-collapse > ul.nav > li > a:hover
+.navbar-collapse > ul.nav > li > a:hover,
 footer a:hover {
-    color: #e8e8e8;
+    color: #e0e0e0;
 }
 
 .content-section-b div.row {
@@ -151,7 +151,6 @@ i.icon-sm {
     letter-spacing: 2px;
     background-color: #BA1818;
     color:#fff;
-    margin-top:10px;
 }
 
 .content-section-a {
